@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: url('bg.jpg') no-repeat center center fixed;
+    background-color: #333333; /* Contrast against the logo's orange */
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -11,7 +11,7 @@ body {
     padding: 20px;
     max-width: 600px;
     margin: 50px auto;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 254, 254, 0.9);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -33,16 +33,18 @@ form {
 }
 
 label {
-    margin: 10px 0 5px;
-    font-weight: bold;
+    width: 30%; /* Adjust width as needed */
+    text-align: left;
+    margin-right: 10px
 }
 
 input {
+    
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 10px;
+    font-size: 20px;
 }
 
 #amount {
@@ -66,7 +68,7 @@ button:hover {
 }
 
 #qrContainer {
-    margin: 20px auto; /* Centers the QR code horizontally */
+    margin: 40px auto; /* Centers the QR code horizontally */
     display: flex;     /* Flexbox for centering */
     justify-content: center;
     align-items: center;
