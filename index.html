@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration</title>
+    <script src="qrcode.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="sunimage.jpg" alt="Event Banner" class="banner">
+        <img src="logo.png" alt="Event Logo" class="logo">
+        <form id="registrationForm">
+            <h1>Event Registration</h1>
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" maxlength="10" required pattern="\d{10}" title="Please enter a 10-digit number">
+            
+            <label for="attendees">Number of Attendees:</label>
+            <input type="number" id="attendees" name="attendees" required min="1" oninput="updateAmount()">
+            
+            <p id="amount">Total Amount: ₹0</p>
+            
+            <button type="button" id="generateQRBtn">Generate Payment QR Code</button>
+            
+            <div id="qrContainer">
+                <!-- QR Code will be generated here -->
+            </div>
+            
+            <button type="submit" id="submitBtn">Submit</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
