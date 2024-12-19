@@ -22,9 +22,9 @@ body {
 }
 
 .logo {
-    width: 300px;
+    width: 200px;
     margin: 10px auto;
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 form {
