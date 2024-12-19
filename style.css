@@ -1,81 +1,77 @@
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
-    background: url('bg.jpg') no-repeat center center fixed;
+    background-color: #333333; /* Contrast against the logo's orange */
     background-size: cover;
-    color: #333;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
+    text-align: center;
+    padding: 20px;
     max-width: 600px;
     margin: 50px auto;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
+    background: rgba(255, 254, 254, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    width: 150px;
+    margin: 20px 0;
 }
 
 .banner {
     width: 100%;
-    border-radius: 8px;
-}
-
-.logo {
-    width: 100px;
-    margin: 10px auto;
+    height: auto;
+    margin-bottom: 20px;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
 }
 
 label {
-    font-weight: bold;
+    width: 30%; /* Adjust width as needed */
     text-align: left;
+    margin-right: 10px
 }
 
 input {
+    
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 100%;
-    box-sizing: border-box;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+#amount {
+    font-size: 18px;
+    margin: 10px 0;
+    font-weight: bold;
 }
 
 button {
-    padding: 10px;
+    background: #ff6200;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
     border: none;
     border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    font-size: 16px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background: #e55a00;
 }
 
-.payment-section {
-    display: flex;
-    justify-content: space-between;
+#qrContainer {
+    margin: 40px auto; /* Centers the QR code horizontally */
+    display: flex;     /* Flexbox for centering */
+    justify-content: center;
     align-items: center;
-    background: #f9f9f9;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    width: 100%;       /* Full width to align properly */
 }
 
-.payment-section p {
-    margin: 0;
-}
-
-#amount {
-    font-weight: bold;
-    font-size: 18px;
-    color: #333;
-}
