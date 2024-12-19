@@ -1,81 +1,56 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const attendeesInput = document.getElementById('attendees');
-    const amountDisplay = document.getElementById('amount');
-    const copyButton = document.getElementById('copyButton');
-    const upiNumber = document.getElementById('upiNumber').textContent;
-    const apiUrl = "https://sheetdb.io/api/v1/c4jeiz75goxnc"; // SheetDB API link
+document.addEventListener("DOMContentLoaded", () => {
+    const attendeesInput = document.getElementById("attendees");
+    const amountDisplay = document.getElementById("amount");
+    const discountDisplay = document.getElementById("discount");
+    const submitButton = document.getElementById("submitButton");
+    const copyButtons = document.querySelectorAll("#copyButton");
 
-    // Calculate the total amount dynamically
-    attendeesInput.addEventListener('input', calculateAmount);
+    // Cost per person and discount rate
+    const originalPrice = 500;
+    const discountRate = 0.4;
+    const discountedPrice = originalPrice - originalPrice * discountRate;
 
-    function calculateAmount() {
+    // Display the discounted price
+    discountDisplay.textContent = `Christmas Offer: ₹${discountedPrice.toFixed(2)} per person (40% off)`;
+
+    // Calculate total amount
+    const calculateAmount = () => {
         const attendees = parseInt(attendeesInput.value) || 0;
-        const totalAmount = attendees * 500;
-        amountDisplay.textContent = `Total Amount: ₹${totalAmount}`;
-    }
+        const totalAmount = attendees * discountedPrice;
+        amountDisplay.textContent = `Total Amount: ₹${totalAmount.toFixed(2)}`;
+    };
+
+    // Attach the calculateAmount function to the attendees input
+    attendeesInput.addEventListener("input", calculateAmount);
 
     // Copy UPI number to clipboard
-    copyButton.addEventListener('click', () => {
-        navigator.clipboard.writeText(upiNumber)
-            .then(() => {
-                alert('UPI number copied to clipboard!');
-            })
-            .catch((err) => {
-                alert('Failed to copy UPI number.');
-                console.error(err);
+    copyButtons.forEach(button => {
+        button.addEventListener("click", (event) => {
+            const upiNumber = event.target.previousElementSibling.textContent;
+            navigator.clipboard.writeText(upiNumber).then(() => {
+                alert("UPI Number copied to clipboard!");
+            }).catch(err => {
+                console.error("Failed to copy UPI number: ", err);
             });
+        });
     });
 
-    // Get current timestamp in IST
-    function getISTTimestamp() {
-        const now = new Date();
-        const utcOffset = now.getTimezoneOffset() * 60000; // Offset in milliseconds
-        const istOffset = 5.5 * 60 * 60 * 1000; // IST is UTC +5:30
-        const istDate = new Date(now.getTime() + utcOffset + istOffset);
-        return istDate.toISOString().replace("T", " ").substring(0, 19); // Format: YYYY-MM-DD HH:MM:SS
-    }
-
     // Handle form submission
-    document.getElementById('registrationForm').addEventListener('submit', (event) => {
-        event.preventDefault(); // Prevent default form submission
+    const registrationForm = document.getElementById("registrationForm");
+    registrationForm.addEventListener("submit", (event) => {
+        event.preventDefault();
 
-        const name = document.getElementById('name').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        const attendees = parseInt(attendeesInput.value) || 0;
+        const name = document.getElementById("name").value;
+        const phone = document.getElementById("phone").value;
+        const attendees = attendeesInput.value;
 
-        if (!name || phone.length !== 10 || attendees <= 0) {
-            alert("Please fill out the form correctly.");
+        if (!name || !phone || !attendees) {
+            alert("Please fill in all required fields.");
             return;
         }
 
-        // Prepare data to send to SheetDB
-        const data = {
-            data: {
-                Name: name,
-                Phone: phone,
-                Attendees: attendees,
-                TotalAmount: attendees * 500,
-                Timestamp: getISTTimestamp() // Add the timestamp
-            }
-        };
-
-        // Send data to SheetDB
-        fetch(apiUrl, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        })
-        .then(response => response.json())
-        .then(result => {
-            alert("Registration submitted successfully!");
-            document.getElementById('registrationForm').reset(); // Reset the form
-            amountDisplay.textContent = "Total Amount: ₹0"; // Reset amount display
-        })
-        .catch(error => {
-            console.error("Error:", error);
-            alert("Failed to submit the registration. Please try again.");
-        });
+        alert(`Thank you for registering, ${name}!\nWe will contact you soon.`);
+        registrationForm.reset();
+        amountDisplay.textContent = "Total Amount: ₹0";
     });
 });

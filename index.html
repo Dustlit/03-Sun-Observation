@@ -7,37 +7,66 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <img src="sunimage.jpg" alt="Event Banner" class="banner">
+
+     <!-- Event Banner -->
+     <section class="container">
+
         <img src="logo.png" alt="Event Logo" class="logo">
+
+        <img src="sunimage.jpg" alt="Event Banner" class="banner">
+        
+        <h1 style="font-family: 'Burtons'; font-size: 60px;">Sun Observation</h1>
+        <p style="font-size: 20px;">with</p>
+        <h2 style="font-family: 'Burtons'; font-size: 30px;">Dedicated Solar Telescope</h2>
+
+        <h2><span style="color: #ff6600;">Join us on December 21st - 22nd at Devadas Observatory, Guindy Chennai for an unforgettable Solar Observation event.</span></h2>
+        <h2><span style="color: #ff6600;">Experience Our Nearest Star with powerful telescopes</span></h2>
+
+        <h3><u>Inclusions:</u></h3>
+        <p>Sun Observation & Observatory Visit</p>
+
+        <p><u>Package Details:</u></p>
+        
+        <p>Regualar Price Per Person : ₹500/-</p>
+
+        <p><u>Disclaimer:</u></p>
+        <p>The occurrence of the event relies on weather conditions.</p>
+        <p>If the weather condition is not good, we will reschedule the event.</p>
+        <p>Date: <span style="color: #ff6600;">21 - 22 December 2024, 11:00 AM - 01:00 PM</span></p>
+        <p>Location: <a href="https://maps.app.goo.gl/YZhs7XzFACym1L9n9" target="_blank" style="color: #ff6600;">Devadas Observatory</a></p>
+    </section>
+
+    <div class="container">
         
         <form id="registrationForm">
             <h1>Event Registration</h1>
-
+        
+            <h1 id="discount" style="color: red; font-weight: bold;"></h1>
+        
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required placeholder="Enter your name">
-
+        
             <label for="phone">Phone Number:</label>
             <input type="text" id="phone" name="phone" required maxlength="10" pattern="\d{10}" placeholder="Enter 10-digit phone number">
-
+        
             <label for="attendees">Number of Attendees:</label>
             <input type="number" id="attendees" name="attendees" required min="1" placeholder="Enter number of attendees" oninput="calculateAmount()">
-
+        
             <p id="amount">Total Amount: ₹0</p>
-
+        
             <div class="payment-section">
-                <p>Payment Details:-</p>
+                <p>Payment Details:</p>
                 <div>
-                    
-                    <p> UPI Number: <span id="upiNumber">7416930597</span></p>
-                <button type="button" id="copyButton">Copy UPI</button></div>
-                <div><p>or</p></div>
-                <div><p>UPI Number: <span id="upiNumber">9585866980</span></p>
+                    <p>UPI Number: <span id="upiNumber">7416930597</span></p>
                     <button type="button" id="copyButton">Copy UPI</button>
                 </div>
-                
+                <div><p>or</p></div>
+                <div>
+                    <p>UPI Number: <span id="upiNumber">9585866980</span></p>
+                    <button type="button" id="copyButton">Copy UPI</button>
+                </div>
             </div>
-
+        
             <button type="submit" id="submitButton">Submit</button>
         </form>
     </div>
