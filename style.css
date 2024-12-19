@@ -3,7 +3,6 @@ body {
     font-family: Arial, sans-serif;
     background: url('bg.jpg') no-repeat center center fixed;
     background-size: cover;
-    
 }
 
 .container {
@@ -11,14 +10,14 @@ body {
     margin: 50px auto;
     background: rgba(255, 255, 255, 0.9);
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
 
 .banner {
     width: 100%;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 .logo {
@@ -79,4 +78,33 @@ button:hover {
     font-weight: bold;
     font-size: 18px;
     color: #333;
+}
+
+/* Styling for radio group */
+.radio-group {
+    display: flex;
+    flex-direction: column; /* Arrange the options vertically */
+    gap: 10px; /* Add spacing between the radio options */
+    margin: 10px 0; /* Add margin around the group */
+    text-align: left; /* Align text to the left */
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+    color: #333; /* Set the text color */
+    transition: color 0.3s ease;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 10px; /* Space between the radio button and the label text */
+    accent-color: #007bff; /* Set custom color for the radio button */
+    width: 18px; /* Customize size */
+    height: 18px;
+}
+
+.radio-group label:hover {
+    color: #007bff; /* Change text color on hover for better feedback */
 }

@@ -31,7 +31,7 @@
         <p><u>Disclaimer:</u></p>
         <p>The occurrence of the event relies on weather conditions.</p>
         <p>If the weather condition is not good, we will reschedule the event.</p>
-        <p>Date: <span style="color: #ff6600;">21 - 22 December 2024, 11:00 AM - 01:00 PM</span></p>
+        <p>Date: <span style="color: #ff6600;">21st - 22nd December 2024, 11:00 AM - 01:00 PM</span></p>
         <p>Location: <a href="https://maps.app.goo.gl/YZhs7XzFACym1L9n9" target="_blank" style="color: #ff6600;">Devadas Observatory</a></p>
     </section>
 
@@ -52,7 +52,16 @@
         
             <label for="attendees">Number of Attendees:</label>
             <input type="number" id="attendees" name="attendees" required min="1" placeholder="Enter number of attendees" oninput="calculateAmount()">
-        
+            
+            <label>Select Event Date:</label>
+    <div class="radio-group">
+        <label>
+            <input type="radio" name="event_date" value="21st December 2024" required>21st December 2024 (Saturday)
+        </label>
+        <label>
+            <input type="radio" name="event_date" value="22nd December 2024">22nd December 2024 (Sunday)
+        </label>
+
             <p id="amount">Total Amount: ₹0</p>
         
             <div class="payment-section">
