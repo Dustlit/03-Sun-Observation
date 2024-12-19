@@ -18,12 +18,13 @@ body {
 
 .banner {
     width: 100%;
-    border-radius: 8px;
+    border-radius: 20px;
 }
 
 .logo {
-    width: 100px;
+    width: 300px;
     margin: 10px auto;
+    border-radius: 15px;
 }
 
 form {
