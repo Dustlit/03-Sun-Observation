@@ -55,9 +55,10 @@
             
             <label>Select Event Date:</label>
     <div class="radio-group">
-        <label>
-            <input type="radio" name="event_date" value="21st December 2024" required>21st December 2024 (Saturday)
-        </label>
+        <label style="text-decoration: line-through;">
+            <input type="radio" name="event_date" value="21st December 2024" disabled required>
+            21st December 2024 (Saturday)
+          </label>
         <label>
             <input type="radio" name="event_date" value="22nd December 2024">22nd December 2024 (Sunday)
         </label>
@@ -70,8 +71,9 @@
                     <p>UPI Number: <span id="upiNumber">7416930597</span></p>
                     <button type="button" id="copyButton">Copy UPI</button>
                 </div>
+                <div><p>-</p></div>
                 <div><p>or</p></div>
-                <div><p></p></div>
+                <div><p>-</p></div>
                 <div>
                     <p>UPI Number: <span id="upiNumber">9585866980</span></p>
                     <button type="button" id="copyButton">Copy UPI</button>
