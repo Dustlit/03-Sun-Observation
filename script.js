@@ -74,4 +74,22 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("An error occurred while submitting your data. Please try again.");
         });
     });
+
+    // Add Copy UPI functionality
+    const copyButtons = document.querySelectorAll("[id^='copyButton']"); // Select all copy buttons
+    copyButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const upiNumberElement = button.previousElementSibling.querySelector("span");
+            const upiNumber = upiNumberElement.textContent;
+
+            navigator.clipboard.writeText(upiNumber).then(() => {
+                button.textContent = "Copied"; // Change button text
+                setTimeout(() => {
+                    button.textContent = "Copy UPI"; // Revert after 3 seconds
+                }, 3000);
+            }).catch(err => {
+                console.error("Failed to copy UPI Number: ", err);
+            });
+        });
+    });
 });
